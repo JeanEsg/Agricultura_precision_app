@@ -17,6 +17,12 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.agriculturadeprecision.app",
+      "versionCode": 1,
+      "permissions": [
+        "INTERNET",
+        "ACCESS_NETWORK_STATE",
+      ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
