@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button, TextInput, Alert, ScrollView } from "react-native";
+import { StyleSheet, Text, View, TextInput, Alert, ScrollView, Pressable} from "react-native";
 import React, { useState } from "react";
 import useApi from "../lib/ADP";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -69,13 +69,17 @@ export function Main() {
       <ScrollView>
         {/* Obtener Datos del Sensor */}
         <View style={styles.section}>
-          <Button title="Obtener Datos" onPress={handleObtenerDatos} />
+        <Pressable style={styles.button} onPress={handleObtenerDatos}>
+            <Text style={styles.buttonText}>OBTENER DATOS</Text>
+          </Pressable>
           <Text style={styles.result}>{result}</Text>
         </View>
 
         {/* Guardar Datos */}
         <View style={styles.section}>
-          <Button title="Guardar Datos" onPress={handleGuardarDatos} />
+        <Pressable style={styles.button} onPress={handleGuardarDatos}>
+            <Text style={styles.buttonText}>GUARDAR DATOS</Text>
+          </Pressable>
         </View>
 
         {/* Calcular Litros de Agua */}
@@ -88,7 +92,9 @@ export function Main() {
             multiline={true}
             textAlignVertical="top"
           />
-          <Button title="Calcular Litros de Agua" onPress={handleCalcularAgua} />
+           <Pressable style={styles.button} onPress={handleCalcularAgua}>
+            <Text style={styles.buttonText}>CALCULAR LITROS DE AGUA</Text>
+          </Pressable>
           <Text style={styles.result}>{waterResult}</Text>
         </View>
 
@@ -102,10 +108,9 @@ export function Main() {
             multiline={true}
             textAlignVertical="top"
           />
-          <Button
-            title="Obtener Recomendaciones"
-            onPress={handleGenerarRecomendacion}
-          />
+           <Pressable style={styles.button} onPress={handleGenerarRecomendacion}>
+            <Text style={styles.buttonText}>OBTENER RECOMENDACIONES</Text>
+          </Pressable>
           <Text style={styles.result}>{recommendationResult}</Text>
         </View>
       </ScrollView>
@@ -139,5 +144,18 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontSize: 16,
     color: "#333",
+  },
+  button: {
+    backgroundColor: '#01c459',
+    padding: 10,
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 14,
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
+
   },
 });

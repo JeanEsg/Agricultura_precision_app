@@ -7,7 +7,7 @@ export default function Layout(){
         <View style={styles.app}>
             <Stack
                 screenOptions={{
-                    headerStyle: { backgroundColor: "green" },
+                    headerStyle: { backgroundColor: "#01c459" },
                     headerTintColor: "white",
                     headerTitle: "Sistema de Monitoreo de Cultivos",
                     headerLeft: () => <Logo />,
@@ -19,7 +19,7 @@ export default function Layout(){
 
 const styles = StyleSheet.create({
     app: {
-        flex: 1,
+        flex: 1, 
     },
 });
 
