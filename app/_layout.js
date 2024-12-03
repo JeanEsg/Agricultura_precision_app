@@ -1,4 +1,4 @@
-import { View, StyleSheet} from "react-native";
+import { Text, View, StyleSheet, Dimensions} from "react-native";
 import { Stack } from "expo-router";
 import { Logo } from "../components/Logo";
 
@@ -9,7 +9,11 @@ export default function Layout(){
                 screenOptions={{
                     headerStyle: { backgroundColor: "#01c459" },
                     headerTintColor: "white",
-                    headerTitle: "Sistema de Monitoreo de Cultivos",
+                    headerTitle: () =>(
+                        <Text style={styles.headerTitle}>
+                            Sistema de Monitoreo de Cultivos
+                        </Text>
+                    ),
                     headerLeft: () => (
                         <View style={styles.logo}>
                           <Logo />
@@ -20,13 +24,23 @@ export default function Layout(){
                 </View>
               );
             }
-            
+
+const { width } = Dimensions.get("window");
+
 const styles = StyleSheet.create({
     app: {
     flex: 1,
     },
     logo: {
-    marginRight: 15,
+    marginRight: 10,
     },
+    headerTitle: {
+        fontSize: 20,
+        color: "white",
+        fontWeight: "bold",
+        textAlign: "center",
+        flexWrap: "wrap",
+        alignSelf: "center",
+      },
 });
 
