@@ -10,16 +10,23 @@ export default function Layout(){
                     headerStyle: { backgroundColor: "#01c459" },
                     headerTintColor: "white",
                     headerTitle: "Sistema de Monitoreo de Cultivos",
-                    headerLeft: () => <Logo />,
+                    headerLeft: () => (
+                        <View style={styles.logo}>
+                          <Logo />
+                        </View>
+                    ),
                 }}
             />
-        </View>
-    );
-}
-
+                </View>
+              );
+            }
+            
 const styles = StyleSheet.create({
     app: {
-        flex: 1, 
+    flex: 1,
+    },
+    logo: {
+    marginRight: 15,
     },
 });
 
