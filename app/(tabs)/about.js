@@ -7,27 +7,27 @@ const AboutScreen = () => {
       <View style={styles.container}>
         <Section
           title="Nosotros"
-          content="Somos un grupo de estudiantes de la Universidad Autonoma de occidente, que cursan en sexto semestre la asignatura de ambiente y desarrollo sostenible. El grupo esta conformado por personas de las carreras de Ingenieria Mecatrónica e Ingenieria Informática. Tenemos como objetivo ayudar al medio ambiente con una solución sustentable para el uso eficaz de los recursos hidricos."
+          content="Somos un grupo de estudiantes de la Universidad Autónoma de Occidente, que cursan en sexto semestre la asignatura de Ambiente y Desarrollo Sostenible. El grupo está conformado por personas de las carreras de Ingeniería Mecatrónica e Ingeniería Informática. Tenemos como objetivo ayudar al medio ambiente con una solución sustentable para el uso eficaz de los recursos hídricos."
           imageSource={require('../../assets/7.jpg')}
         />
         <Section
-          title="Introduccion"
+          title="Introducción"
           content="La creciente preocupación por la escasez de agua y la necesidad de optimizar los recursos en la agricultura ha llevado a explorar soluciones tecnológicas que promuevan un uso eficiente del agua. Este proyecto propone la implementación de un sistema de agricultura de precisión que monitoree variables clave para reducir el desperdicio de agua y mejorar la productividad agrícola."
           imageSource={require('../../assets/3.jpg')}
         />
         <Section
           title="Problema"
-          content="La creciente preocupación por la escasez de agua y la necesidad de optimizar los recursos en la agricultura ha llevado a explorar soluciones tecnológicas que promuevan un uso eficiente del agua. Este proyecto propone la implementación de un sistema de agricultura de precisión que monitoree variables clave para reducir el desperdicio de agua y mejorar la productividad agrícola."
+          content="El desperdicio de agua en la agricultura es un problema crítico, especialmente en comunidades rurales donde el acceso a este recurso es limitado. Las prácticas de riego ineficientes contribuyen a la escasez de agua, afectando tanto la producción agrícola como la sostenibilidad del medio ambiente."
           imageSource={require('../../assets/4.webp')}
         />
         <Section
-          title="Situacion actual"
+          title="Situación actual"
           content="El agua es esencial para la agricultura, pero su uso ineficiente puede llevar a la degradación del suelo y afectar la seguridad alimentaria. La implementación de tecnologías de monitoreo puede mejorar la gestión del agua. Existen diferentes tipos de sensores que permiten medir la humedad del suelo, la temperatura y la humedad relativa del aire, lo que ayuda a los agricultores a tomar decisiones informadas sobre el riego."
           imageSource={require('../../assets/2.jpg')}
         />
         <Section
-          title="Nuestra prototipo"
-          content="Este sistema conecta sensores a un microcontrolador ESP32 programado en C++. Una vez el código ha sido compilado, el microcontrolador se conecta a la red Wi-Fi y queda listo para recibir peticiones de sistemas remotos para visulizar la temperatura, la humedad relativa del aire y la humedad del suelo de nuestra planta en momento real. También, el prototipo calcula la cantidad de agua que le hace falta a la planta para garantizar su uso eficiente. Para finalizar, nuestro sistema ofrece la psoibilidad de poder ofrecer todo tipo de recomendaciones basadas en IA, según el usuario lo requiera."
+          title="Nuestro prototipo"
+          content="Este sistema conecta sensores a un microcontrolador ESP32 programado en C++. Una vez el código ha sido compilado, el microcontrolador se conecta a la red Wi-Fi y queda listo para recibir peticiones de sistemas remotos para visualizar la temperatura, la humedad relativa del aire y la humedad del suelo de nuestra planta en tiempo real. También, el prototipo calcula la cantidad de agua que le hace falta a la planta para garantizar su uso eficiente. Para finalizar, nuestro sistema ofrece la posibilidad de ofrecer todo tipo de recomendaciones basadas en IA, según el usuario lo requiera."
           imageSource={require('../../assets/6.jpg')}
         />
         <Section

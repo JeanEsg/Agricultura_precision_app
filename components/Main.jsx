@@ -146,7 +146,7 @@ export function Main() {
         {/* Generar Graficos */}
         <View style={styles.section}>
            <Pressable style={styles.button} onPress={handleGrafico}>
-            <Text style={styles.buttonText}>Generar Graficas</Text>
+            <Text style={styles.buttonText}>Generar Gráficas</Text>
           </Pressable>
           <Graficos datos= { allResult } />
         </View>

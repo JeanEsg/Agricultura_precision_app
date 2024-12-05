@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { View, Dimensions, Text, Pressable, StyleSheet, ScrollView} from "react-native";
+import React, { useState } from "react";
+import { View, Dimensions, Text, Pressable, StyleSheet, ScrollView } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import { Picker } from '@react-native-picker/picker';
 
@@ -55,7 +55,7 @@ export function Graficos({ datos }) {
         }
       })
       .map((item) => ({
-        fecha: item.tiempo ? new Date(item.tiempo.fecha).toLocaleString() : "",
+        fecha: item.tiempo ? new Date(item.tiempo.fecha).toLocaleString() : " ",
         valor: item[tipo],
       }));
   };
@@ -75,9 +75,9 @@ export function Graficos({ datos }) {
     switch (tipo) {
       case "temperatura":
         return "rgba(255, 99, 132, 1)";
-      case "humedadAire":
+      case "humedad_aire":
         return "rgba(54, 162, 235, 1)";
-      case "humedadSuelo":
+      case "humedad_suelo":
         return "rgba(75, 192, 192, 1)";
       default:
         return "rgba(153, 102, 255, 1)";
@@ -87,7 +87,7 @@ export function Graficos({ datos }) {
   return (
     <View>
       <Text style={styles.titulo}>
-        Gráfico de {tipo === "temperatura" ? "Temperatura" : tipo === "humedadAire" ? "Humedad del Aire" : "Humedad del Suelo"}
+        Gráfico de {tipo === "temperatura" ? "Temperatura" : tipo === "humedad_aire" ? "Humedad del Aire" : "Humedad del Suelo"}
       </Text>
 
       {/* Selector de rango temporal */}
