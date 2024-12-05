@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, TextInput, Alert, ScrollView, Pressable} from "
 import React, { useState } from "react";
 import useApi from "../lib/ADP";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { Graficos } from "./Graficos";
 
 export function Main() {
   const {
@@ -10,7 +11,8 @@ export function Main() {
     guardarDatos,
     calcularCantidadAgua,
     generarRecomendacion,
-  } = useApi(); // Usa el hook personalizado para manejar la lógica
+    obtenerTodosDataSensor,
+  } = useApi();
   
   const insets = useSafeAreaInsets();
 
@@ -19,12 +21,22 @@ export function Main() {
   const [result, setResult] = useState("");
   const [waterResult, setWaterResult] = useState("");
   const [recommendationResult, setRecommendationResult] = useState("");
+  const [allResult, setAllResult] = useState("");
 
   // Manejar obtener datos del sensor
   const handleObtenerDatos = async () => {
     try {
       const data = await obtenerDatosSensor();
-      setResult(`Datos obtenidos: ${JSON.stringify(data, null, 2)}`);
+  
+      // Formatea los datos obtenidos en un formato más legible
+      const formattedData = data.map((item) => `
+        - Temperatura: ${item.temperatura}°C
+        - Humedad del Aire: ${item.humedad_aire}%
+        - Humedad del Suelo: ${item.humedad_suelo}%
+        - Fecha: ${item.tiempo.dia}/${item.tiempo.mes}/${item.tiempo.año}
+      `).join("\n");
+  
+      setResult(`Datos obtenidos:\n${formattedData}`);
     } catch (error) {
       setResult(`Error al obtener datos: ${error.message}`);
     }
@@ -64,9 +76,26 @@ export function Main() {
     }
   };
 
+  const handleGrafico = async () => {
+    try {
+      const data = await obtenerTodosDataSensor();
+  
+      // Verifica que 'data' sea un arreglo o el formato esperado
+      if (!data || !Array.isArray(data) || data.length === 0) {
+        setAllResult("No hay datos disponibles para generar los gráficos.");
+        return;
+      }
+  
+      setAllResult(data);
+    } catch (error) {
+      setAllResult(`Error al obtener datos: ${error.message}`);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView>
+
         {/* Obtener Datos del Sensor */}
         <View style={styles.section}>
         <Pressable style={styles.button} onPress={handleObtenerDatos}>
@@ -113,6 +142,15 @@ export function Main() {
           </Pressable>
           <Text style={styles.result}>{recommendationResult}</Text>
         </View>
+
+        {/* Generar Graficos */}
+        <View style={styles.section}>
+           <Pressable style={styles.button} onPress={handleGrafico}>
+            <Text style={styles.buttonText}>Generar Graficas</Text>
+          </Pressable>
+          <Graficos datos= { allResult } />
+        </View>
+
       </ScrollView>
     </View>
   );
@@ -138,7 +176,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     marginVertical: 10,
-    width: '100%', // Asegura que el TextInput no se extienda infinitamente
+    width: '100%',
   },
   result: {
     marginTop: 10,

@@ -32,8 +32,8 @@ const AboutScreen = () => {
         />
         <Section
           title="Nuestra app"
-          content="La aplicación móvil se conecta al prototipo a través de una API RESTful. La aplicación permite visualizar los datos de los sensores en tiempo real y recibir recomendaciones personalizadas para el riego de la planta. Además, la aplicación cuenta con un chatbot que responde a las preguntas más frecuentes de los usuarios y ofrece información sobre el estado de la planta."
-          imageSource={require('../../assets/6.jpg')}
+          content="La aplicación móvil se conecta al prototipo a través de una API RESTful. La aplicación permite visualizar los datos de los sensores en tiempo real y recibir recomendaciones personalizadas para el riego de la planta. Además, la aplicación cuenta con un chatbot que responde a las preguntas más frecuentes de los usuarios y ofrece información sobre el estado de la planta. La aplicación móvil permite consultar datos de sensores en tiempo real mediante un sistema RAG con backend desarrollado en Python siguiendo una arquitectura hexagonal. La interfaz de la aplicación es intuitiva y dinámica, facilitando la exploración de datos y respondiendo consultas específicas relacionadas con los sensores."
+          imageSource={require('../../assets/8.jpg')}
         />
 
       </View>
